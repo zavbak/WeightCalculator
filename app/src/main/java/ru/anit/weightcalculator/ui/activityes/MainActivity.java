@@ -52,46 +52,7 @@ public class MainActivity extends MvpAppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
-
-       init();
-    }
-
-    void init(){
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open
-                , R.string.navigation_drawer_close);
-
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
-        navigationView.setNavigationItemSelectedListener(this);
-
-
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setAdapter(new AdapterListProduct(mPresenter.getListProducts()));
-    }
-
-
-    //*********************************************************************************************
-    // implement MainActivitiesView
-
-    @Override
-    public void showMessageView(CharSequence text) {
-        Snackbar.make(fab, text, Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show();
-    }
-
-    //*********************************************************************************************
-    // event
-
-    @OnClick(R.id.fab)
-    void clickFab(){
-        mPresenter.clickFabPresenter();
+        init();
     }
 
     @Override
@@ -150,6 +111,48 @@ public class MainActivity extends MvpAppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+    /**
+     * init OnCreate
+     */
+    void init(){
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open
+                , R.string.navigation_drawer_close);
+
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        navigationView.setNavigationItemSelectedListener(this);
+
+
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setAdapter(new AdapterListProduct(mPresenter.getListProducts()));
+    }
+
+    //*********************************************************************************************
+    // implement MainActivitiesView
+
+    @Override
+    public void showMessageView(CharSequence text) {
+        Snackbar.make(fab, text, Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
+    }
+
+    //*********************************************************************************************
+    // event
+
+    @OnClick(R.id.fab)
+    void clickFab(){
+        mPresenter.clickFabPresenter();
+    }
+
+
 
 
 }
