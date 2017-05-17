@@ -1,4 +1,4 @@
-package ru.anit.weightcalculator.ui.adapters;
+package ru.anit.weightcalculator.ui.adapters.products;
 
 
 import android.support.v7.widget.RecyclerView;
@@ -18,9 +18,12 @@ public class AdapterListProduct extends RecyclerView.Adapter<AdapterListProduct.
 
     private final List mList;
 
+    private CallBackClickItem mCallBackClickItem;
 
-    public AdapterListProduct(List list) {
+
+    public AdapterListProduct(List list,CallBackClickItem CallBackClickItem) {
         mList = list;
+        mCallBackClickItem = CallBackClickItem;
         //mProducts.addChangeListener(this);
     }
 
@@ -54,7 +57,7 @@ public class AdapterListProduct extends RecyclerView.Adapter<AdapterListProduct.
     /**
      * Holde
      */
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @BindView(R.id.tv_name)
         TextView tvName;
 
@@ -78,7 +81,17 @@ public class AdapterListProduct extends RecyclerView.Adapter<AdapterListProduct.
         public ViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, itemView);
+            view.setOnClickListener(this);
         }
 
+        @Override
+        public void onClick(View v) {
+            mCallBackClickItem.click(mItem.getId());
+        }
     }
+
+    public interface CallBackClickItem {
+        void click(String id);
+    }
+
 }

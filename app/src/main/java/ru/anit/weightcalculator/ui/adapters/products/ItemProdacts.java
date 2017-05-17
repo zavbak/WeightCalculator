@@ -1,4 +1,4 @@
-package ru.anit.weightcalculator.ui.adapters;
+package ru.anit.weightcalculator.ui.adapters.products;
 
 
 
@@ -7,11 +7,13 @@ public class ItemProdacts implements ItemProdactsI {
     CharSequence mName;
     CharSequence mSites;
     CharSequence mWeight;
+    String mId;
 
-    public ItemProdacts(CharSequence name, CharSequence weight, CharSequence sites) {
+    public ItemProdacts(String id,CharSequence name, CharSequence weight, CharSequence sites) {
         mName = name;
         mSites = sites;
         mWeight = weight;
+        mId = id;
     }
 
     @Override
@@ -27,5 +29,10 @@ public class ItemProdacts implements ItemProdactsI {
     @Override
     public CharSequence getWeight() {
         return mWeight;
+    }
+
+    @Override
+    public String getId() {
+        return mId;
     }
 }

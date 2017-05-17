@@ -19,14 +19,26 @@
         android:layout_height="match_parent">
 
 
+
+
         <TextView
-            android:id="@+id/tv_name"
+            android:id="@+id/tv_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:text="name"/>
+            android:text="id"/>
+
+        <TextView
+            android:id="@+id/tv_barcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="barcode"
+            android:layout_below="@+id/tv_id"/>
 
         <TextView
             android:id="@+id/tv_sites"
@@ -36,7 +48,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:text="sites"
-            android:layout_below="@+id/tv_name"
+            android:layout_below="@+id/tv_barcode"
             />
 
         <TextView
@@ -47,7 +59,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:text="weight"
-            android:layout_below="@+id/tv_name"
+            android:layout_below="@+id/tv_barcode"
             android:layout_toRightOf="@+id/tv_sites"
             />
 

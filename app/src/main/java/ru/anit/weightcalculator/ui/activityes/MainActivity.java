@@ -1,17 +1,14 @@
 package ru.anit.weightcalculator.ui.activityes;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,15 +16,13 @@ import android.view.MenuItem;
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 
-import javax.inject.Inject;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ru.anit.weightcalculator.R;
 import ru.anit.weightcalculator.mvp.presenters.MainActivityPresenter;
 import ru.anit.weightcalculator.mvp.views.MainActivitiesView;
-import ru.anit.weightcalculator.ui.adapters.AdapterListProduct;
+import ru.anit.weightcalculator.ui.adapters.products.AdapterListProduct;
 
 public class MainActivity extends MvpAppCompatActivity
         implements MainActivitiesView,NavigationView.OnNavigationItemSelectedListener {
@@ -132,7 +127,7 @@ public class MainActivity extends MvpAppCompatActivity
 
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setAdapter(new AdapterListProduct(mPresenter.getListProducts()));
+        mRecyclerView.setAdapter(new AdapterListProduct(mPresenter.getListProducts(),id -> mPresenter.clickItem(id)));
     }
 
     //*********************************************************************************************
@@ -142,6 +137,11 @@ public class MainActivity extends MvpAppCompatActivity
     public void showMessageView(CharSequence text) {
         Snackbar.make(fab, text, Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show();
+    }
+
+    @Override
+    public void startProductActivity(String id) {
+        startActivity(ProductActivity.getIntent(this,id));
     }
 
     //*********************************************************************************************
