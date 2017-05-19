@@ -36,4 +36,12 @@ public class ProdactActivityPresenter extends MvpPresenter<ProdactActivityView> 
     public void startBarcodeListActivityPresenter() {
         getViewState().startBarcodeListActivityView(Long.toString(mProduct.getId()));
     }
+
+    public void onClickCalculate() {
+        startBarcodeListActivityPresenter();
+    }
+
+    public void onClickCancel() {
+        getViewState().finishView();
+    }
 }

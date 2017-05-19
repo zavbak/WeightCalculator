@@ -6,6 +6,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import ru.anit.weightcalculator.general.LogHelper;
 
 
 @Module
@@ -21,4 +22,5 @@ public final class ApplicationModule {
     Context provideApplicationContext() {
         return context;
     }
+
 }

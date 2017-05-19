@@ -59,9 +59,23 @@ public class ProductActivity extends MvpAppCompatActivity implements ProdactActi
         startActivity(BarcodeListActivity.getIntent(this,id));
     }
 
+    @Override
+    public void finishView() {
+        finish();
+    }
+
+
+    //*********************************************************************************************
+    //  events
 
     @OnClick(R.id.btCalculate)
     void onClickBtCalculate(){
-        mPresenter.startBarcodeListActivityPresenter();
+        mPresenter.onClickCalculate();
+
+    }
+
+    @OnClick(R.id.btCancel)
+    void onClickBtCancel(){
+        mPresenter.onClickCancel();
     }
 }

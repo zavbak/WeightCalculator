@@ -2,6 +2,7 @@ package ru.anit.weightcalculator.mvp.views;
 
 import com.arellomobile.mvp.MvpView;
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy;
+import com.arellomobile.mvp.viewstate.strategy.SkipStrategy;
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
 
 /**
@@ -12,4 +13,7 @@ public interface BarcodeListActivityView extends MvpView {
 
     @StateStrategyType(AddToEndSingleStrategy.class)
     void refreshView();
+
+    @StateStrategyType(SkipStrategy.class)
+    void startDilogBarcode(String id);
 }

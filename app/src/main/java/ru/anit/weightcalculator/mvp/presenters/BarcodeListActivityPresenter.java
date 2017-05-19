@@ -76,5 +76,6 @@ public class BarcodeListActivityPresenter extends MvpPresenter<BarcodeListActivi
     }
 
     public void clickItem(String id) {
+        getViewState().startDilogBarcode(id);
     }
 }

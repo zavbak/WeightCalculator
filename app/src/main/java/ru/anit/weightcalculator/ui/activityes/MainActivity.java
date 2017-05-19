@@ -16,10 +16,14 @@ import android.view.MenuItem;
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ru.anit.weightcalculator.R;
+import ru.anit.weightcalculator.app.App;
+import ru.anit.weightcalculator.general.LogHelper;
 import ru.anit.weightcalculator.mvp.presenters.MainActivityPresenter;
 import ru.anit.weightcalculator.mvp.views.MainActivitiesView;
 import ru.anit.weightcalculator.ui.adapters.products.AdapterListProduct;
@@ -42,12 +46,16 @@ public class MainActivity extends MvpAppCompatActivity
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
 
+    @Inject
+    LogHelper mLogHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         init();
+
     }
 
     @Override

@@ -8,208 +8,160 @@
 
                 tools:context="ru.anit.weightcalculator.ui.activityes.ProductActivity">
 
-    <TextView
-        android:id="@+id/tvMessage"
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_weight="1"
-        android:text=""
-        android:textSize="18dp"
+        android:layout_height="match_parent">
 
-        />
-
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/card_message"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        card_view:cardCornerRadius="5dp"
-        card_view:cardElevation="8dp"
-        >
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/tilId"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/MyTextInputLayout"
-            >
+            android:orientation="vertical">
 
-            <EditText
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="id"
-                android:theme="@style/MyEditText"
-
-                />
-        </android.support.design.widget.TextInputLayout>
-
-    </android.support.v7.widget.CardView>
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
 
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/card_barcode"
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/MyTextInputLayout"
+                    >
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="id"
+                        android:theme="@style/MyEditText"
+
+                        />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilBarcode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilId"
+                    android:theme="@style/MyTextInputLayout"
+                    >
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Штрих код"
+                        android:theme="@style/MyEditText"
+
+                        />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilBarcode"
+                    android:theme="@style/MyTextInputLayout"
+                    >
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Товар"
+                        android:theme="@style/MyEditText"
+
+                        />
+                </android.support.design.widget.TextInputLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilStart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilName"
+                    android:theme="@style/MyTextInputLayout"
+                    >
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Начальная позиция"
+                        android:theme="@style/MyEditText"
+
+                        />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilFinish"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilStart"
+                    android:theme="@style/MyTextInputLayout"
+                    >
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Конечная позиция"
+                        android:theme="@style/MyEditText"
+
+                        />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilCof"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilFinish"
+                    android:theme="@style/MyTextInputLayout"
+                    >
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Конечная позиция"
+                        android:theme="@style/MyEditText"
+
+                        />
+
+                </android.support.design.widget.TextInputLayout>
+
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/card_message"
-        android:layout_gravity="center"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        card_view:cardCornerRadius="5dp"
-        card_view:cardElevation="8dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true">
 
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/tilBarcode"
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/btCalculate"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:theme="@style/MyTextInputLayout"
-            >
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_weight="1"
+            android:text="Сбор"/>
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Штрихкод"
-                android:theme="@style/MyEditText"
-
-                />
-        </android.support.design.widget.TextInputLayout>
-    </android.support.v7.widget.CardView>
-
-
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/card_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/card_barcode"
-        android:layout_gravity="center"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        card_view:cardCornerRadius="5dp"
-        card_view:cardElevation="8dp">
-
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/tilName"
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/btCancel"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/card_barcode"
-            android:theme="@style/MyTextInputLayout"
-            >
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Наименование"
-                android:theme="@style/MyEditText"
-
-                />
-        </android.support.design.widget.TextInputLayout>
-
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/card_start"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/card_name"
-        android:layout_gravity="center"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        card_view:cardCornerRadius="5dp"
-        card_view:cardElevation="8dp">
-
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/tilStart"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/MyTextInputLayout"
-        >
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Начальный символ"
-            android:theme="@style/MyEditText"
-
-            />
-    </android.support.design.widget.TextInputLayout>
-    </android.support.v7.widget.CardView>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/tilFinish"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tilStart"
-        android:theme="@style/MyTextInputLayout"
-        >
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Конечный символ"
-            android:theme="@style/MyEditText"
-
-            />
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/tilСoef"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tilFinish"
-        android:theme="@style/MyTextInputLayout"
-        >
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Коэффицент"
-            android:theme="@style/MyEditText"
-
-            />
-
-    </android.support.design.widget.TextInputLayout>
-
-
-    <Button
-        android:id="@+id/btCalculate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tilСoef"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Сбор"
-        />
-
-    <Button
-        android:id="@+id/btSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/tilСoef"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginTop="8dp"
-        android:text="Сохранить"
-        />
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_weight="1"
+            android:text="Cancel"/>
+    </RelativeLayout>
 
 
 </RelativeLayout>

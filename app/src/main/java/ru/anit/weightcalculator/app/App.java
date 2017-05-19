@@ -2,10 +2,13 @@ package ru.anit.weightcalculator.app;
 
 import android.app.Application;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import ru.anit.weightcalculator.di.ApplicationComponent;
 import ru.anit.weightcalculator.di.ApplicationModule;
 import ru.anit.weightcalculator.di.DaggerApplicationComponent;
-
+import ru.anit.weightcalculator.di.RealmModule;
+import ru.anit.weightcalculator.servise.realm.RealmMigration;
 
 
 public class App extends Application {
@@ -23,6 +26,16 @@ public class App extends Application {
     Инициализация всего
      */
     void init(){
+
+        Realm.init(this);
+
+        RealmConfiguration config = new RealmConfiguration.Builder()
+                .schemaVersion(1)
+                .migration(new RealmMigration())
+                .build();
+
+        Realm.setDefaultConfiguration(config);
+
         mAppComponent = DaggerApplicationComponent.builder()
                 .applicationModule(new ApplicationModule(this))
                 .build();

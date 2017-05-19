@@ -13,12 +13,16 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.anit.weightcalculator.R;
+import ru.anit.weightcalculator.mvp.model.intities.Barcode;
+import ru.anit.weightcalculator.mvp.model.intities.Product;
 import ru.anit.weightcalculator.mvp.presenters.BarcodeListActivityPresenter;
 import ru.anit.weightcalculator.mvp.presenters.ProdactActivityPresenter;
 import ru.anit.weightcalculator.mvp.views.BarcodeListActivityView;
 import ru.anit.weightcalculator.mvp.views.ProdactActivityView;
 import ru.anit.weightcalculator.ui.adapters.barcode.AdapterListBarcode;
+import ru.anit.weightcalculator.ui.adapters.barcode.ItemBarcode;
 import ru.anit.weightcalculator.ui.adapters.products.AdapterListProduct;
+import ru.anit.weightcalculator.ui.dialog.DialogBarcode;
 
 /**
  * Created by Alex on 17.05.2017.
@@ -30,6 +34,8 @@ public class BarcodeListActivity extends MvpAppCompatActivity implements Barcode
 
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
+
+    DialogBarcode mDialogBarcode;
 
 
     public static Intent getIntent(final Context context, String id) {
@@ -64,5 +70,16 @@ public class BarcodeListActivity extends MvpAppCompatActivity implements Barcode
     @Override
     public void refreshView() {
 
+    }
+
+    @Override
+    public void startDilogBarcode(String id) {
+        Product product = new Product();
+        product.setName("Свинина");
+        Barcode barcode = new Barcode();
+
+
+        mDialogBarcode = new DialogBarcode(this,product,barcode);
+        mDialogBarcode.show();
     }
 }
