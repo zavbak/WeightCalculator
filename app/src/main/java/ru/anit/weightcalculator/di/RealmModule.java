@@ -7,8 +7,6 @@ import dagger.Provides;
 import io.realm.Realm;
 import ru.anit.weightcalculator.repository.realm.repository.IProductRepository;
 import ru.anit.weightcalculator.repository.realm.repository.impl.ProductRepository;
-import ru.anit.weightcalculator.servise.realm.RepositoryProductsI;
-import ru.anit.weightcalculator.servise.realm.RepositoryProductsRealm;
 
 
 @Module

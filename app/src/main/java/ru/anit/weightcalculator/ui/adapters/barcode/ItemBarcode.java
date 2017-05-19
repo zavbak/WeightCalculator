@@ -1,8 +1,6 @@
 package ru.anit.weightcalculator.ui.adapters.barcode;
 
 
-import ru.anit.weightcalculator.ui.adapters.products.ItemProdactsI;
-
 public class ItemBarcode implements ItemBarcodeI {
 
 

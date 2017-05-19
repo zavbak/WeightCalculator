@@ -7,7 +7,7 @@ import io.realm.RealmConfiguration;
 import ru.anit.weightcalculator.di.ApplicationComponent;
 import ru.anit.weightcalculator.di.ApplicationModule;
 import ru.anit.weightcalculator.di.DaggerApplicationComponent;
-import ru.anit.weightcalculator.servise.realm.RealmMigration;
+import ru.anit.weightcalculator.repository.realm.module.RealmMigration;
 
 
 public class App extends Application {

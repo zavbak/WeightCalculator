@@ -1,4 +1,4 @@
-package ru.anit.weightcalculator.servise.realm;
+package ru.anit.weightcalculator.repository.realm.module;
 
 import io.realm.DynamicRealm;
 import io.realm.RealmSchema;
