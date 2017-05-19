@@ -1,5 +1,6 @@
 package ru.anit.weightcalculator.mvp.model.intities;
 
+import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -13,7 +14,9 @@ public class Product extends RealmObject  {
     private int startPosition;
     private int finishPosition;
     private float coefficient;
-    private String barcode;
+    private String initBarcode;
+
+    private RealmList<Barcode> barcodes;
 
 
     public long getId() {
@@ -56,11 +59,19 @@ public class Product extends RealmObject  {
         this.coefficient = coefficient;
     }
 
-    public String getBarcode() {
-        return barcode;
+    public String getInitBarcode() {
+        return initBarcode;
     }
 
-    public void setBarcode(String barcode) {
-        this.barcode = barcode;
+    public void setInitBarcode(String initBarcode) {
+        this.initBarcode = initBarcode;
+    }
+
+    public RealmList<Barcode> getBarcodes() {
+        return barcodes;
+    }
+
+    public void setBarcodes(RealmList<Barcode> barcodes) {
+        this.barcodes = barcodes;
     }
 }

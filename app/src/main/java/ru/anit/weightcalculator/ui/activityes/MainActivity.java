@@ -21,11 +21,14 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.realm.RealmResults;
 import ru.anit.weightcalculator.R;
 import ru.anit.weightcalculator.app.App;
 import ru.anit.weightcalculator.general.LogHelper;
+import ru.anit.weightcalculator.mvp.model.intities.Product;
 import ru.anit.weightcalculator.mvp.presenters.MainActivityPresenter;
 import ru.anit.weightcalculator.mvp.views.MainActivitiesView;
+import ru.anit.weightcalculator.repository.realm.repository.IProductRepository;
 import ru.anit.weightcalculator.ui.adapters.products.AdapterListProduct;
 
 public class MainActivity extends MvpAppCompatActivity
@@ -49,10 +52,14 @@ public class MainActivity extends MvpAppCompatActivity
     @Inject
     LogHelper mLogHelper;
 
+    @Inject
+    IProductRepository mIProductRepository;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        App.getAppComponent().injectProdactMainActivity(this);
         ButterKnife.bind(this);
         init();
 
@@ -133,9 +140,22 @@ public class MainActivity extends MvpAppCompatActivity
 
         navigationView.setNavigationItemSelectedListener(this);
 
-
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setAdapter(new AdapterListProduct(mPresenter.getListProducts(),id -> mPresenter.clickItem(id)));
+
+        mIProductRepository.getAllProduct(new IProductRepository.OnGetAllProductCallback() {
+            @Override
+            public void onSuccess(RealmResults<Product> products) {
+                mRecyclerView.setAdapter(new AdapterListProduct(products,id -> mPresenter.clickItem(id)));
+            }
+
+            @Override
+            public void onError(String message) {
+
+            }
+        });
+
+
+
     }
 
     //*********************************************************************************************

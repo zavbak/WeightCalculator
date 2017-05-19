@@ -26,6 +26,9 @@ public class ProductActivity extends MvpAppCompatActivity implements ProdactActi
     @BindView(R.id.tilId)
     TextInputLayout tilId;
 
+    @BindView(R.id.tilName)
+    TextInputLayout tilName;
+
 
     public static Intent getIntent(final Context context, String id) {
         Intent intent = new Intent(context, ProductActivity.class);
@@ -51,7 +54,8 @@ public class ProductActivity extends MvpAppCompatActivity implements ProdactActi
 
     @Override
     public void refreshView() {
-        tilId.getEditText().setText(mPresenter.getId());
+        tilId  .getEditText().setText(Long.toString(mPresenter.getProduct().getId()));
+        tilName.getEditText().setText(mPresenter.getProduct().getName());
     }
 
     @Override
@@ -74,8 +78,9 @@ public class ProductActivity extends MvpAppCompatActivity implements ProdactActi
 
     }
 
-    @OnClick(R.id.btCancel)
-    void onClickBtCancel(){
-        mPresenter.onClickCancel();
+    @OnClick(R.id.btOK)
+    void onClickBtOk(){
+        mPresenter.getProduct().setName((String) tilName.getEditText().getText().toString());
+        mPresenter.onClickOk();
     }
 }

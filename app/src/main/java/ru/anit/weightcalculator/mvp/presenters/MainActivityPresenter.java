@@ -16,7 +16,7 @@ import ru.anit.weightcalculator.ui.adapters.products.ItemProdactsI;
 public class MainActivityPresenter extends MvpPresenter<MainActivitiesView> {
 
     public void clickFabPresenter(){
-        getViewState().showMessageView("Hello" +new Date());
+        getViewState().startProductActivity(null);
     }
 
     public void clickItem(String id){

@@ -34,12 +34,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() throws Exception {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
-        mLogHelper.logD("Start useAppContext");
-
-        Product product = new Product();
-        product.setName("ghkjhkjhkjhkj");
-        long id = App.getAppComponent().getRepositoryProducts().save(product);
-        mLogHelper.logD("Save product: " + id);
 
 
         assertEquals("ru.anit.weightcalculator", appContext.getPackageName());

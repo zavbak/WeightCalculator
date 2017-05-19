@@ -1,13 +1,27 @@
 package ru.anit.weightcalculator.mvp.model.intities;
 
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
 /**
  * Created by user on 19.05.2017.
  */
 
-public class Barcode {
+public class Barcode extends RealmObject {
+    @PrimaryKey
+    long   id;
     String barcode;
     float  weight;
-    int  sites;
+    int    sites;
+
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getBarcode() {
         return barcode;

@@ -1,22 +1,15 @@
 package ru.anit.weightcalculator.mvp.presenters;
 
-import android.support.v7.widget.RecyclerView;
-
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import ru.anit.weightcalculator.R;
 import ru.anit.weightcalculator.mvp.model.intities.Product;
 import ru.anit.weightcalculator.mvp.views.BarcodeListActivityView;
-import ru.anit.weightcalculator.mvp.views.ProdactActivityView;
 import ru.anit.weightcalculator.ui.adapters.barcode.ItemBarcode;
 import ru.anit.weightcalculator.ui.adapters.barcode.ItemBarcodeI;
-import ru.anit.weightcalculator.ui.adapters.products.ItemProdacts;
-import ru.anit.weightcalculator.ui.adapters.products.ItemProdactsI;
 
 /**
  * Created by Alex on 17.05.2017.
@@ -31,7 +24,7 @@ public class BarcodeListActivityPresenter extends MvpPresenter<BarcodeListActivi
     public void setProduct(String id) {
         mProduct = new Product();
         mProduct.setName("Свинина");
-        mProduct.setBarcode("65456456456165156156156");
+        mProduct.setInitBarcode("65456456456165156156156");
         mProduct.setId(Long.parseLong(id));
         mProduct.setStartPosition(5);
         mProduct.setFinishPosition(10);

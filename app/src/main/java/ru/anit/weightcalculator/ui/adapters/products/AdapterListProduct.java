@@ -12,19 +12,21 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.RealmChangeListener;
+import io.realm.RealmResults;
 import ru.anit.weightcalculator.R;
+import ru.anit.weightcalculator.mvp.model.intities.Product;
 
 public class AdapterListProduct extends RecyclerView.Adapter<AdapterListProduct.ViewHolder> implements RealmChangeListener {
 
-    private final List mList;
+    private final RealmResults<Product> mList;
 
     private CallBackClickItem mCallBackClickItem;
 
 
-    public AdapterListProduct(List list,CallBackClickItem CallBackClickItem) {
+    public AdapterListProduct(RealmResults<Product> list,CallBackClickItem CallBackClickItem) {
         mList = list;
         mCallBackClickItem = CallBackClickItem;
-        //mProducts.addChangeListener(this);
+        mList.addChangeListener(this);
     }
 
     @Override
@@ -39,7 +41,7 @@ public class AdapterListProduct extends RecyclerView.Adapter<AdapterListProduct.
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int i) {
-        holder.setItem((ItemProdactsI) mList.get(i));
+        holder.setItem((Product) mList.get(i));
     }
 
     @Override
@@ -67,15 +69,15 @@ public class AdapterListProduct extends RecyclerView.Adapter<AdapterListProduct.
         @BindView(R.id.tv_sites)
         TextView tvSites;
 
-        ItemProdactsI mItem;
+        Product mItem;
 
 
-        public void setItem(ItemProdactsI item) {
+        public void setItem(Product item) {
             mItem = item;
 
             tvName.setText(mItem.getName());
-            tvWeight.setText(mItem.getWeight());
-            tvSites.setText(mItem.getSites());
+            //tvWeight.setText(mItem.get);
+            //tvSites.setText(mItem.getSites());
         }
 
         public ViewHolder(View view) {
@@ -86,7 +88,7 @@ public class AdapterListProduct extends RecyclerView.Adapter<AdapterListProduct.
 
         @Override
         public void onClick(View v) {
-            mCallBackClickItem.click(mItem.getId());
+            mCallBackClickItem.click(Long.toString(mItem.getId()));
         }
     }
 
