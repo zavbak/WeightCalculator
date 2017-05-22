@@ -36,13 +36,11 @@ public interface IBurcodeRepository {
         void onError(String message);
     }
 
-    void addBarcode(Barcode Barcode, OnSaveBarcodeCallback callback);
+    void saveBarcode(Barcode barcode, OnSaveBarcodeCallback callback);
 
-    void addBarcodeByProduct(Barcode Barcode, long barcodeId, OnSaveBarcodeCallback callback);
+    void saveBarcodeByProduct(Barcode Barcode, long productId, OnSaveBarcodeCallback callback);
 
     void deleteBarcodeById(long id, OnDeleteBarcodeCallback callback);
-
-    void deleteBarcodeByPosition(int position, OnDeleteBarcodeCallback callback);
 
     void getAllBarcodes(OnGetAllBarcodesCallback callback);
 

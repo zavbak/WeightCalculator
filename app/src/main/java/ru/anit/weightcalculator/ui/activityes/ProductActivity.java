@@ -83,4 +83,11 @@ public class ProductActivity extends MvpAppCompatActivity implements ProdactActi
         mPresenter.getProduct().setName((String) tilName.getEditText().getText().toString());
         mPresenter.onClickOk();
     }
+
+    @OnClick(R.id.btDell)
+    void onClickBtDell(){
+        mPresenter.onClickDell();
+    }
+
+
 }

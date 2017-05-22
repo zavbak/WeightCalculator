@@ -12,6 +12,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import ru.anit.weightcalculator.R;
 import ru.anit.weightcalculator.mvp.model.intities.Barcode;
 import ru.anit.weightcalculator.mvp.model.intities.Product;
@@ -79,7 +80,14 @@ public class BarcodeListActivity extends MvpAppCompatActivity implements Barcode
         Barcode barcode = new Barcode();
 
 
-        mDialogBarcode = new DialogBarcode(this,product,barcode);
+        mDialogBarcode = new DialogBarcode(this,product,barcode, (String weight, String sites) -> {mPresenter.dialogBarcodePositive(weight);},() -> {});
         mDialogBarcode.show();
     }
+
+    @OnClick(R.id.fab)
+    void clickFab(){
+        mPresenter.clickFabPresenter();
+    }
+
+
 }

@@ -85,4 +85,25 @@ public class ProdactActivityPresenter extends MvpPresenter<ProdactActivityView> 
 
         getViewState().finishView();
     }
+
+    public void onClickDell() {
+
+        if(mProduct.getId() == 0 ){
+            return;
+        }
+
+        mIProductRepository.deleteProductById(mProduct.getId(), new IProductRepository.OnDeleteProductCallback() {
+            @Override
+            public void onSuccess() {
+
+            }
+
+            @Override
+            public void onError(String message) {
+
+            }
+        });
+        getViewState().finishView();
+
+    }
 }

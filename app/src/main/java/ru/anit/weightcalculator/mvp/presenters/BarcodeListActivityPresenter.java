@@ -71,4 +71,12 @@ public class BarcodeListActivityPresenter extends MvpPresenter<BarcodeListActivi
     public void clickItem(String id) {
         getViewState().startDilogBarcode(id);
     }
+
+    public void clickFabPresenter() {
+        getViewState().startDilogBarcode(null);
+    }
+
+    public void dialogBarcodePositive(String weight) {
+
+    }
 }

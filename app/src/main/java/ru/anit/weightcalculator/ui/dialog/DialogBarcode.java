@@ -2,9 +2,12 @@ package ru.anit.weightcalculator.ui.dialog;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.support.design.widget.TextInputLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import ru.anit.weightcalculator.R;
 import ru.anit.weightcalculator.mvp.model.intities.Barcode;
 import ru.anit.weightcalculator.mvp.model.intities.Product;
@@ -22,10 +25,22 @@ public class DialogBarcode {
     AlertDialog.Builder mBuilder;
     AlertDialog mAlertDialog;
 
-    public DialogBarcode(Context context, Product product, Barcode barcode) {
+    ClickPositiveI mClickPositive;
+    ClickNegativeI mClickNegative;
+
+    @BindView(R.id.tilWeight)
+    TextInputLayout tilId;
+
+    public DialogBarcode(Context context, Product product, Barcode barcode,
+                         ClickPositiveI clickPositive, ClickNegativeI clickNegative ) {
+
         mContext = context;
         mProduct = product;
         mBarcode = barcode;
+        mClickPositive = clickPositive;
+        mClickNegative = clickNegative;
+
+
     }
 
     void init(){
@@ -33,6 +48,7 @@ public class DialogBarcode {
         LayoutInflater li = LayoutInflater.from(mContext);
         View view = li.inflate(R.layout.dialog_barcode, null);
 
+        ButterKnife.bind(this,view);
 
         mBuilder = new AlertDialog.Builder(mContext);
 
@@ -42,7 +58,7 @@ public class DialogBarcode {
         mBuilder
                 .setTitle("Титл")
                 .setMessage("Мессадже")
-                .setPositiveButton("OK", (dialog, which) -> {})
+                .setPositiveButton("OK", (dialog, which) -> {mClickPositive.onClickPositive(tilId.getEditText().getText().toString(),"");})
                 .setNegativeButton("Cancel",(dialog, which) -> {})
                 .setCancelable(false);
 
@@ -59,6 +75,14 @@ public class DialogBarcode {
         if(mAlertDialog != null){
             mAlertDialog.dismiss();
         }
+    }
+
+    public interface ClickPositiveI{
+        void onClickPositive(String weight, String sites);
+    }
+
+    public interface ClickNegativeI{
+        void onClickNegative();
     }
 
 

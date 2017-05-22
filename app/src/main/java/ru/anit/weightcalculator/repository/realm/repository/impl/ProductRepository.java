@@ -22,7 +22,7 @@ public class ProductRepository implements IProductRepository {
         mRealm = realm;
     }
 
-    private <E extends RealmModel> long getNextId(Class<E> clazz) {
+    public  <E extends RealmModel> long getNextId(Class<E> clazz) {
 
         long id = 1;
 
