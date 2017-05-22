@@ -40,4 +40,36 @@
 
             />
     </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/btClosed"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tilSites"
+        android:layout_alignParentLeft="true"
+        android:layout_weight="1"
+        android:text="Закрыть"/>
+
+    <Button
+        android:id="@+id/btDell"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tilSites"
+        android:layout_centerHorizontal="true"
+        android:layout_weight="1"
+        android:text="Удалить"/>
+
+
+    <Button
+        android:id="@+id/btOk"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tilSites"
+        android:layout_alignParentRight="true"
+        android:layout_weight="1"
+        android:text="Ok"/>
+
 </RelativeLayout>

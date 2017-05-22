@@ -9,7 +9,7 @@ import ru.anit.weightcalculator.mvp.model.intities.Barcode;
 /**
  * Created by roma on 16.10.15.
  */
-public interface IBurcodeRepository {
+public interface IBarcodeRepository {
 
     interface OnSaveBarcodeCallback {
         void onSuccess();

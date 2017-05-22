@@ -34,6 +34,17 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".ui.activityes.DialogBarcodeActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"
+            android:label="Штрихкод"
+            >
+            <intent-filter>
+                <action android:name="com.motorolasolutions.emdk.sample.dwdemosample.RECVR"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
 
     </application>
 

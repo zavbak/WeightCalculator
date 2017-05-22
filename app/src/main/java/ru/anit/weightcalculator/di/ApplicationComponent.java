@@ -3,6 +3,7 @@ package ru.anit.weightcalculator.di;
 import javax.inject.Singleton;
 
 import dagger.Component;
+import ru.anit.weightcalculator.mvp.presenters.DialogBarcodePresenter;
 import ru.anit.weightcalculator.mvp.presenters.ProdactActivityPresenter;
 import ru.anit.weightcalculator.ui.activityes.MainActivity;
 
@@ -14,5 +15,6 @@ import ru.anit.weightcalculator.ui.activityes.MainActivity;
 @Component(modules={ApplicationModule.class,RealmModule.class})
 public interface ApplicationComponent {
     void injectProdactActivityPresenter(ProdactActivityPresenter prodactActivityPresenter);
+    void injectDialogBarcodePresenter(DialogBarcodePresenter dialogBarcodePresenter);
     void injectProdactMainActivity(MainActivity mainActivity);
 }

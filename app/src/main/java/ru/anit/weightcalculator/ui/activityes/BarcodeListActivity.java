@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -23,6 +24,7 @@ import ru.anit.weightcalculator.mvp.views.ProdactActivityView;
 import ru.anit.weightcalculator.ui.adapters.barcode.AdapterListBarcode;
 import ru.anit.weightcalculator.ui.adapters.barcode.ItemBarcode;
 import ru.anit.weightcalculator.ui.adapters.products.AdapterListProduct;
+import ru.anit.weightcalculator.ui.dialog.DFBarcode;
 import ru.anit.weightcalculator.ui.dialog.DialogBarcode;
 
 /**
@@ -37,6 +39,8 @@ public class BarcodeListActivity extends MvpAppCompatActivity implements Barcode
     RecyclerView mRecyclerView;
 
     DialogBarcode mDialogBarcode;
+
+
 
 
     public static Intent getIntent(final Context context, String id) {
@@ -60,6 +64,8 @@ public class BarcodeListActivity extends MvpAppCompatActivity implements Barcode
         mPresenter.setProduct(id);
         mPresenter.refreshPresenter();
 
+
+
         init();
     }
 
@@ -78,10 +84,17 @@ public class BarcodeListActivity extends MvpAppCompatActivity implements Barcode
         Product product = new Product();
         product.setName("Свинина");
         Barcode barcode = new Barcode();
+        barcode.setBarcode("654564564564");
+        barcode.setWeight(Float.parseFloat("5.2"));
+        barcode.setWeight(2);
+
+        //DFBarcode dfb = new DFBarcode();
+        //dfb.setBarcode(barcode);
 
 
-        mDialogBarcode = new DialogBarcode(this,product,barcode, (String weight, String sites) -> {mPresenter.dialogBarcodePositive(weight);},() -> {});
-        mDialogBarcode.show();
+        //dfb.show(getFragmentManager(),null);
+        startActivity(DialogBarcodeActivity.getIntent(this,id));
+
     }
 
     @OnClick(R.id.fab)

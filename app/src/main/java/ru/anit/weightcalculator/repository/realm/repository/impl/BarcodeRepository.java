@@ -1,7 +1,5 @@
 package ru.anit.weightcalculator.repository.realm.repository.impl;
 
-import java.util.UUID;
-
 import io.realm.Realm;
 import io.realm.RealmList;
 import io.realm.RealmModel;
@@ -9,14 +7,14 @@ import io.realm.RealmQuery;
 import io.realm.RealmResults;
 import ru.anit.weightcalculator.mvp.model.intities.Barcode;
 import ru.anit.weightcalculator.mvp.model.intities.Product;
-import ru.anit.weightcalculator.repository.realm.repository.IBurcodeRepository;
+import ru.anit.weightcalculator.repository.realm.repository.IBarcodeRepository;
 import ru.anit.weightcalculator.repository.realm.table.RealmTable;
 
 /**
  * Created by Alex on 22.05.2017.
  */
 
-public class BarcodeRepository implements IBurcodeRepository {
+public class BarcodeRepository implements IBarcodeRepository {
 
     Realm mRealm = Realm.getDefaultInstance();
 
